@@ -199,6 +199,126 @@ export default function Home() {
           </div>
         </div>
       </section>
+      {/* Product poster */}
+      <section className="bg-white dark:bg-gray-900">
+        <div className="gap-16 items-center py-8 px-4 mx-auto max-w-screen-xl lg:grid lg:grid-cols-2 lg:py-16 lg:px-6">
+          <div className="font-light text-gray-500 sm:text-lg dark:text-gray-400">
+            <h2 className="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
+              We didn't reinvent the wheel
+            </h2>
+            <p className="mb-4">
+              We are strategists, designers and developers. Innovators and
+              problem solvers. Small enough to be simple and quick, but big
+              enough to deliver the scope you want at the pace you need. Small
+              enough to be simple and quick, but big enough to deliver the scope
+              you want at the pace you need.
+            </p>
+            <p>
+              We are strategists, designers and developers. Innovators and
+              problem solvers. Small enough to be simple and quick.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 gap-4 mt-8">
+            <img
+              className="w-full h-48 md:h-80 rounded-lg"
+              src="https://img.freepik.com/free-psd/black-friday-discount-sale-social-media-post-design-template_47987-17594.jpg?t=st=1736589904~exp=1736593504~hmac=f64b3c6e9af3832ba7b2c12980bffd000ea0b6b324d10a7f7a818310fc822cb0&w=740"
+              alt="office content 1"
+            />
+            <img
+              className="mt-4 w-full h-48 md:h-80 lg:mt-10 rounded-lg"
+              src="https://img.freepik.com/free-psd/black-friday-special-sale-social-media-post-design-template_47987-17538.jpg?t=st=1736590087~exp=1736593687~hmac=89c8bf6b525f1d2be736689762931c6d2c845a2eb2a1e0303082625dc212657f&w=740"
+              alt="office content 2"
+            />
+          </div>
+        </div>
+      </section>
+      {/* Product poster Gallery */}
+      <section className="bg-white px-4 py-8 antialiased dark:bg-gray-900 md:py-1">
+      <div className="bg-white dark:bg-gray-800 py-6 sm:py-8 lg:py-2">
+        <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
+          <div className="mb-4 flex items-center justify-between gap-8 sm:mb-8 md:mb-12">
+            <div className="flex items-center gap-12">
+              <h2 className="text-2xl font-bold text-gray-800 lg:text-3xl dark:text-white">
+                Gallery
+              </h2>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
+            <a
+              href="#"
+              className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&q=75&fit=crop&w=600"
+                loading="lazy"
+                alt="Photo by Minh Pham"
+                className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
+              />
+
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"></div>
+
+              <span className="relative ml-4 mb-3 inline-block text-sm text-white md:ml-5 md:text-lg">
+                VR
+              </span>
+            </a>
+            <a
+              href="#"
+              className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1542759564-7ccbb6ac450a?auto=format&q=75&fit=crop&w=1000"
+                loading="lazy"
+                alt="Photo by Magicle"
+                className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
+              />
+
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"></div>
+
+              <span className="relative ml-4 mb-3 inline-block text-sm text-white md:ml-5 md:text-lg">
+                Tech
+              </span>
+            </a>
+            <a
+              href="#"
+              className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-80"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1610465299996-30f240ac2b1c?auto=format&q=75&fit=crop&w=1000"
+                loading="lazy"
+                alt="Photo by Martin Sanchez"
+                className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
+              />
+
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"></div>
+
+              <span className="relative ml-4 mb-3 inline-block text-sm text-white md:ml-5 md:text-lg">
+                Dev
+              </span>
+            </a>
+
+            <a
+              href="#"
+              className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&q=75&fit=crop&w=600"
+                loading="lazy"
+                alt="Photo by Lorenzo Herrera"
+                className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
+              />
+
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50"></div>
+
+              <span className="relative ml-4 mb-3 inline-block text-sm text-white md:ml-5 md:text-lg">
+                Retro
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      </section>
+      
       {/* category section */}
       <section className="bg-gray-50 py-8 antialiased dark:bg-gray-900 md:py-16">
         <div className="mx-auto max-w-screen-xl px-4 2xl:px-0">
