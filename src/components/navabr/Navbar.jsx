@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "flowbite";
-
+import Logo from "../../assets/image/Logo.png"
 export default function Navbar() {
   return (
     <>
@@ -10,16 +10,13 @@ export default function Navbar() {
             <div className="flex items-center space-x-8">
               <div className="shrink-0">
                 <Link to="/">
+                  <div>
                   <img
                     className="block w-auto h-8 dark:hidden"
-                    src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/logo-full.svg"
+                    src={Logo}
                     alt=""
                   />
-                  <img
-                    className="hidden w-auto h-8 dark:block"
-                    src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/logo-full-dark.svg"
-                    alt=""
-                  />
+                  </div>
                 </Link>
               </div>
 
