@@ -9,12 +9,12 @@ import Layout from "./components/layout/Layout.jsx";
 import Pricing from "./pages/pricing/Pricing.jsx";
 import Products from "./pages/best-sellers/Products.jsx";
 import Shop from "./pages/shop/Shop.jsx";
+import ProductCategory from "./pages/productCategory/ProductCategory.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
-    // errorElement: <ErrorPage />, // Uncomment and define ErrorPage if you want to handle errors
     children: [
       {
         path: "/",
@@ -39,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: "best-sellers",
         element: <Products />,
+      },
+      {
+        path: "best-sellers/:product",
+        element: <ProductCategory />,
       },
       {
         path: "shop",

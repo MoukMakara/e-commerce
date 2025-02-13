@@ -1,0 +1,43 @@
+const Category = [
+    {
+        key:1,
+        category:"Computer"
+    },
+    {
+        key:2,
+        category:"Camera"
+    },
+    {
+        key:3,
+        category:"Controller"
+    },
+    {
+        key:4,
+        category:"Fan"
+    },
+    {
+        key:5,
+        category:"GPS"
+    },
+    {
+        key:6,
+        category:"Headphone"
+    },
+    {
+        key:7,
+        category:"Phone"
+    },
+    {
+        key:8,
+        category:"Projector"
+    },
+    {
+        key:9,
+        category:"Television"
+    },
+    {
+        key:10,
+        category:"Watch"
+    }
+]
+export default Category

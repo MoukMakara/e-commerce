@@ -1,69 +1,70 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { provideData } from "../../components/Provider/ContextData";
+import { useSearchParams } from "react-router-dom";
 
 export default function Shop() {
+  const {dataSeller} = provideData()
+  const [data,setData]= useState([])
+  const [param,setParam]=useSearchParams();
+  const [isLoading,setLoading] = useState(false)
+  useEffect(function(){
+    const filter =dataSeller.filter((data)=> data.category==param.get("category") && data.key==param.get("card"))
+    setData(filter)
+    console.log(filter)
+    setLoading(true)
+    console.log(filter)
+  },[])
   return (
-    <div className="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 lg:px-8">
+    <>
+      {
+      isLoading && (
+        <div className="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 lg:px-8">
       <article className="md:gap-8 md:grid md:grid-cols-3">
         <div>
           <div className="flex items-center mb-6">
             <img
-              className="w-28 h-28 rounded-full"
-              src="https://cdn.vectorstock.com/i/500p/08/19/gray-photo-placeholder-icon-design-ui-vector-35850819.jpg"
+              className="w-28 h-28 rounded-full object-contain"
+              src={data[0].image}
               alt=""
             />
             <div className="ml-3 mt-2 text-2xl font-extrabold bg-gradient-to-r from-rose-500 to-yellow-400 bg-clip-text text-transparent dark:text-white">
-              <p>SHOP ZANDO</p>
+              <p>{data[0].nameShop}</p>
             </div>
           </div>
 
           <ul className="space-y-4 text-sm text-gray-500 dark:text-gray-400">
             {/* rating */}
             <div class="flex items-center">
-              <svg
-                className="w-4 h-4 text-yellow-300 me-1"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 22 20"
-              >
-                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-              </svg>
-              <svg
-                className="w-4 h-4 text-yellow-300 me-1"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 22 20"
-              >
-                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-              </svg>
-              <svg
-                className="w-4 h-4 text-yellow-300 me-1"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 22 20"
-              >
-                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-              </svg>
-              <svg
-                className="w-4 h-4 text-yellow-300 me-1"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 22 20"
-              >
-                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-              </svg>
-              <svg
-                className="w-4 h-4 text-gray-300 me-1 dark:text-gray-500"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                viewBox="0 0 22 20"
-              >
-                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-              </svg>
+             
+            {[...Array(5)].map((_, index) => {
+            if (index < Number(Math.floor(data[0].rate))) {
+                return (
+                    <svg
+                        className="h-4 w-4 text-yellow-400"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                        >
+                        <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+                    </svg>
+                )
+            } else {
+                return (
+                    <svg
+                    className="h-4 w-4 text-yellow-400"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    >
+                    <path d="M13.8 4.2a2 2 0 0 0-3.6 0L8.4 8.4l-4.6.3a2 2 0 0 0-1.1 3.5l3.5 3-1 4.4c-.5 1.7 1.4 3 2.9 2.1l3.9-2.3 3.9 2.3c1.5 1 3.4-.4 3-2.1l-1-4.4 3.4-3a2 2 0 0 0-1.1-3.5l-4.6-.3-1.8-4.2Z" />
+                    </svg>
+                )
+            }
+            })}
+
+
+
               <p className="ms-1 text-sm font-medium text-gray-500 dark:text-gray-400">
                 4.95
               </p>
@@ -97,7 +98,7 @@ export default function Shop() {
                   d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
                 ></path>
               </svg>
-              Doun Penh, Phnom Penh, Cambodia
+              {data[0].address}
             </li>
             <li className="flex items-center">
               <svg
@@ -116,7 +117,7 @@ export default function Shop() {
                   d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"
                 ></path>
               </svg>
-              0975494982
+              {data[0].phone}
             </li>
             <li className="flex items-center">
               <svg
@@ -135,7 +136,7 @@ export default function Shop() {
                   d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
                 ></path>
               </svg>
-              08:00 to 06:00
+              {data[0].datetime_open}
             </li>
             <li className="flex items-center">
               <svg
@@ -165,27 +166,22 @@ export default function Shop() {
                 Shop Details
               </h4>
               <h4 className="text-xl font-semibold text-gray-900 dark:text-white">
-                Spotless, good appliances, excellent layout, host was genuinely
-                nice and helpful.
+                {
+                  data[0].name
+                }
               </h4>
             </div>
           </div>
           <p className="mb-2 text-gray-500 dark:text-gray-400">
-            The flat was spotless, very comfortable, and the host was amazing. I
-            highly recommend this accommodation for anyone visiting New York
-            city centre. It's quite a while since we are no longer using hotel
-            facilities but self contained places. And the main reason is poor
-            cleanliness and staff not being trained properly. This place
-            exceeded our expectation and will return for sure.
+            {data[0].description}
           </p>
-          <p className="mb-5 text-gray-500 dark:text-gray-400">
-            It is obviously not the same build quality as those very expensive
-            watches. But that is like comparing a Citroën to a Ferrari. This
-            watch was well under £100! An absolute bargain.
-          </p>
+       
         </div>
       </article>
       
     </div>
+      )
+    }
+    </>
   );
 }
