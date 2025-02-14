@@ -284,7 +284,7 @@ export default function Filter({withFilter,setDataProduct, setLengthCate,setLeng
                  </div>
                </div>
              </div>
-        <div
+        <di
           className={`fixed top-0 left-0 h-[100%] ${showFilter ? '' : 'hidden'}  bg-[#0c1a0778]  z-50 w-full overflow-y-auto overflow-x-hidden p-4 md:inset-0`}
         >
           <div className="relative h-full top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] w-full max-w-xl md:h-auto">
@@ -1098,7 +1098,7 @@ export default function Filter({withFilter,setDataProduct, setLengthCate,setLeng
               </div>
             </div>
           </div>
-        </div>
+        </di>
       </>
   )
 }

@@ -13,10 +13,7 @@ export default function AddToCard({card}) {
   }
   return (
     <>
-       {/* <Toaster
-            position="top-right"
-            reverseOrder={false}
-            /> */}
+
     <div className="grid grid-cols-2">
         <div>
         <a
@@ -31,9 +28,6 @@ export default function AddToCard({card}) {
         </div>
 
         <div className="flex items-center justify-end gap-6">
-        {/* <p className="text-sm font-normal leading-none text-gray-500 dark:text-gray-400">
-            Qty: 1
-        </p> */}
 
         <button
             onClick={()=>{

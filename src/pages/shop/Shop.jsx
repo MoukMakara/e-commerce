@@ -15,6 +15,13 @@ export default function Shop() {
     setLoading(true)
     console.log(filter)
   },[param])
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1)); // Get a random index
+        [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+    }
+    return array;
+  }
   return (
     <>
       {
@@ -182,11 +189,11 @@ export default function Shop() {
       </article>
           <div className="mb-4 grid mt-5 gap-4 sm:grid-cols-1 md:grid-cols-2 md:mb-8 lg:grid-cols-3 xl:grid-cols-4 ">
           {
-            dataSeller.filter((data) => data.category == param.get("category"))
-            .sort((a, b) => b.name.localeCompare(a.name))
+            
+             shuffleArray(dataSeller.filter((data) => data.category == param.get("category")))
             .slice(0, 8)
             .map((dataFill, index) => (
-                <Card  dataFill={dataFill} categoryId={1} />
+                <Card  dataFill={dataFill} categoryId={Number(param.get("category"))} />
               ))
           }
           </div>

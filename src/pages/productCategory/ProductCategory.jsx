@@ -74,7 +74,7 @@ export default function ProductCategory() {
             <div className="mb-4 grid gap-4 sm:grid-cols-1 md:grid-cols-2 md:mb-8 lg:grid-cols-3 xl:grid-cols-4 ">
                 {
                     
-                    data.slice(0, defaultitemShow) // Display dynamic number of items
+                    data.slice(0, defaultitemShow) 
                     .map((dataFill, index) => (
                         <Card  dataFill={dataFill} categoryId={param.get("id")} />
                     ))

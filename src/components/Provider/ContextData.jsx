@@ -7,7 +7,7 @@ export default function ContextData({children}) {
     const [addTocard,setaddToCard]=useState([])
     useEffect(() => {
       const card = localStorage.getItem("card");
-      const cards = card ? JSON.parse(card) : []; // ✅ Handles null case safely
+      const cards = card ? JSON.parse(card) : []; 
       setaddToCard(cards);
     }, []);
   return (
