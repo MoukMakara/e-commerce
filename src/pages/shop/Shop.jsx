@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { provideData } from "../../components/Provider/ContextData";
 import { useSearchParams } from "react-router-dom";
+import Card from "../../components/ui/Card";
 
 export default function Shop() {
   const {dataSeller} = provideData()
@@ -175,9 +176,20 @@ export default function Shop() {
           <p className="mb-2 text-gray-500 dark:text-gray-400">
             {data[0].description}
           </p>
-       
+          
+      
         </div>
       </article>
+          <div className="mb-4 grid mt-5 gap-4 sm:grid-cols-1 md:grid-cols-2 md:mb-8 lg:grid-cols-3 xl:grid-cols-4 ">
+          {
+            dataSeller.filter((data) => data.category == param.get("category"))
+            .sort((a, b) => b.name.localeCompare(a.name))
+            .slice(0, 8)
+            .map((dataFill, index) => (
+                <Card  dataFill={dataFill} categoryId={1} />
+              ))
+          }
+          </div>
       
     </div>
       )

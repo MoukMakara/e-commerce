@@ -22,6 +22,7 @@ export default function Allcard({typeCategory,dataSeller,dataCard,setData,lenthI
     }
   },[param])
 
+  
   return (
     <div className="mb-4 grid gap-4 sm:grid-cols-1 md:grid-cols-2 md:mb-8 lg:grid-cols-3 xl:grid-cols-4 ">
     {

@@ -57,6 +57,7 @@ export default function Products() {
       <section className="bg-gray-50 py-16 sm:py-12 antialiased dark:bg-gray-900 md:py-12">
         <div className="mx-auto max-w-screen-xl px-4 2xl:px-0">
 
+
           <Filter withFilter={true} setDataProduct={setData} setLengthCate={setLengthCate} setLengthItem={setLengthItem} setCategoryShow={setCategoryShow}/>
           {
             categoryShow.slice(0, defaultCategoryShow).map((categories,index)=>(
