@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .spinner-4 {
     width: 50px;
     --b: 8px; /* the border thickness */

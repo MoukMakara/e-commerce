@@ -401,7 +401,7 @@ export default function Navbar() {
               <li>
                 <a
                   href="#"
-                  className="hover:text-primary-700 dark:hover:text-primary-500"
+                  className="hover:text-primary-700  dark:hover:text-primary-500"
                 >
                   Electronics
                 </a>
