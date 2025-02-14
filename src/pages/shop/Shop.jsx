@@ -14,7 +14,7 @@ export default function Shop() {
     console.log(filter)
     setLoading(true)
     console.log(filter)
-  },[])
+  },[param])
   return (
     <>
       {
