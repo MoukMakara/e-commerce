@@ -15,7 +15,7 @@ export default function Navbar() {
                 <Link to="/">
                   <div>
                   <img
-                    className="block w-auto h-8 dark:hidden"
+                    className="block w-auto h-8 mt-[-6px] dark:hidden"
                     src={Logo}
                     alt=""
                   />
