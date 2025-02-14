@@ -1,9 +1,22 @@
 import React from 'react'
 import { provideData } from '../Provider/ContextData'
-
+import toast, { Toaster } from 'react-hot-toast';
 export default function AddToCard({card}) {
-    
+    const {addTocard,setaddToCard,dataSeller} = provideData()
+  function handleRemoveCard(idCard,idCategory){
+    console.log(addTocard)
+    const findCard = addTocard.filter((item) => (item.key !== idCard) || (item.category !== idCategory));
+    setaddToCard(findCard)
+    console.log(findCard)
+    toast.success(`your card has been removed`)
+    localStorage.setItem("card",JSON.stringify(findCard))
+  }
   return (
+    <>
+       {/* <Toaster
+            position="top-right"
+            reverseOrder={false}
+            /> */}
     <div className="grid grid-cols-2">
         <div>
         <a
@@ -23,6 +36,9 @@ export default function AddToCard({card}) {
         </p> */}
 
         <button
+            onClick={()=>{
+                handleRemoveCard(card.key,card.category)
+            }}
             data-tooltip-target="tooltipRemoveItem1a"
             type="button"
             className="text-red-600 hover:text-red-700 dark:text-red-500 dark:hover:text-red-600"
@@ -52,5 +68,7 @@ export default function AddToCard({card}) {
         </div>
         </div>
   </div>
+  
+ </>
   )
 }

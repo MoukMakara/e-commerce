@@ -1,21 +1,61 @@
 import React from 'react'
 import { data, Link } from 'react-router-dom'
 import { provideData } from '../Provider/ContextData'
-
+import toast, { Toaster } from 'react-hot-toast';
 export default function Card({dataFill,categoryId}) {
   const {addTocard,setaddToCard,dataSeller} = provideData()
   function handleAddtoCard(keyItem,keyCategory){
-    console.log("Hi  add ",keyItem)
-    console.log("Hi  df ",keyCategory)
     const findCard = dataSeller.filter((item)=>item.key==keyItem && item.category == keyCategory)
     console.log(findCard)
-    addTocard.push(...findCard)
-    console.log(addTocard)
+    toast.custom((t) => (
+        <div
+          className={`${
+            t.visible ? 'animate-enter' : 'animate-leave'
+          } max-w-md w-full bg-white shadow-lg rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5`}
+        >
+          <div className="flex-1 w-0 p-4">
+            <div className="flex items-start">
+              <div className="flex-shrink-0 pt-0.5">
+                <img
+                  className="h-10 w-10 rounded-full"
+                  src={findCard[0].image}
+                  alt=""
+                />
+              </div>
+              <div className="ml-3 flex-1">
+                <p className="text-sm font-medium text-gray-900">
+                  Add to card : {findCard[0].name}
+                </p>
+                <p className="mt-1 text-sm text-gray-500">
+                  Price : ${findCard[0].price}
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className="flex border-l border-gray-200">
+            <button
+              onClick={() => toast.dismiss(t.id)}
+              className="w-full border border-transparent rounded-none rounded-r-lg p-4 flex items-center justify-center text-sm font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      ))
+    setaddToCard((oldCard)=>{
+        return [...oldCard,...findCard]
+    })
+    
     localStorage.setItem("card",JSON.stringify(addTocard))
   }
   return (
     <>
-         <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+    
+    <Toaster
+        position="top-right"
+        reverseOrder={false}
+        />
+    <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
       <div className="h-56 w-full">
         <Link to={`../shop?category=${categoryId}&card=${dataFill.key}`}>
           <img

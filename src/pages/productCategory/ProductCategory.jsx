@@ -17,9 +17,24 @@ export default function ProductCategory() {
   const {product} = useParams()
   useEffect(function(){
     const filter =dataSeller.filter((data)=> data.category==param.get("id"))
-    setData(filter)
-    setdataLoading(true)
-  },[])
+
+    if(param.get("sort")=="increase-price"){
+          const newFilter = filter.sort((a, b) => a.price - b.price) 
+          setData(newFilter)
+        }else if(param.get("sort")=="decrease-price"){
+          const newFilter = filter.sort((a, b) => b.price - a.price) 
+          setData(newFilter)
+        }
+        else if(param.get("sort")=="discount"){
+            const newFilter = filter.sort((a, b) => b.discount - a.discount) 
+          setData(newFilter)
+        }
+        else{
+          setData(filter)
+        }
+        setdataLoading(true)
+
+  },[param])
 
 
   useEffect(() => {
@@ -54,7 +69,7 @@ export default function ProductCategory() {
     <div>
       <section className="bg-gray-50 py-16 sm:py-12 antialiased dark:bg-gray-900 md:py-12">
         <div className="mx-auto max-w-screen-xl px-4 2xl:px-0">
-            <Filter />   
+            <Filter WithFilter={false}/>   
             <Category  category={product} seemore={false} idCategory={param.get("id")}/>
             <div className="mb-4 grid gap-4 sm:grid-cols-1 md:grid-cols-2 md:mb-8 lg:grid-cols-3 xl:grid-cols-4 ">
                 {

@@ -10,4 +10,6 @@ import televisionData from "./typeCategory/television"
 import watchData from "./typeCategory/watch"
 const data=[...Computer,...cameraData,...controllerData,...fanData,...gpsData,...headphoneData,...phoneData,...projectorData,...televisionData,...watchData]
 
+
+
 export default data

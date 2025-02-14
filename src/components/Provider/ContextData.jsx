@@ -5,15 +5,11 @@ const DataContext = createContext();
 export default function ContextData({children}) {
     const [dataSeller,setDataSeller] = useState(bestSeller)
     const [addTocard,setaddToCard]=useState([])
-    useEffect(function(){
-      const card = localStorage.getItem("card")
-      const cards= JSON.parse(card)
-      if(cards){
-        setaddToCard(cards)
-      }else{
-        setaddToCard([])
-      }
-    },[])
+    useEffect(() => {
+      const card = localStorage.getItem("card");
+      const cards = card ? JSON.parse(card) : []; // ✅ Handles null case safely
+      setaddToCard(cards);
+    }, []);
   return (
     <>
         <DataContext.Provider value={{dataSeller,setDataSeller,category,addTocard,setaddToCard}}>
